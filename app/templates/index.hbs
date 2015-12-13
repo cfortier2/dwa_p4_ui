@@ -1,0 +1,15 @@
+<h1>Welcome to Rentals</h1>
+
+<p>We hope you find exactly what you're looking for in a place to stay.</p>
+
+{{#each model as |listing|}}
+  <h2>{{listing.title}}</h2>
+  <p>Id: {{listing.id}}</p>
+  <p>Owner: {{listing.owner}}</p>
+  <p>Type: {{listing.type}}</p>
+  <p>Location: {{listing.city}}</p>
+  <p>Number of bedrooms: {{listing.bedrooms}}</p>
+{{/each}}
+
+{{#link-to "about"}}About{{/link-to}}
+{{#link-to "contact"}}Click here to contact us.{{/link-to}}

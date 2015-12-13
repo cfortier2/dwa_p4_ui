@@ -43,5 +43,9 @@ module.exports = function(environment) {
 
   }
 
+  ENV.contentSecurityPolicy = {
+  'connect-src': "'self' *"
+}
+
   return ENV;
 };
