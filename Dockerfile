@@ -1,8 +1,8 @@
 FROM rnsloan/emberjs:latest
 
 ADD package.json /tmp/package.json
-RUN cd /tmp && npm install
-RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
+RUN cd /tmp && npm install --color false
+RUN mkdir -p /rentals && cp -a /tmp/node_modules /rentals
 
 COPY . /rentals
 
