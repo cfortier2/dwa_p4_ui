@@ -8,7 +8,7 @@ RUN mkdir -p /rentals && cp -a /tmp/node_modules /rentals
 # pre-install bower things
 RUN npm install -g bower
 ADD bower.json /tmp/bower.json
-RUN cd /tmp && bower install
+RUN cd /tmp && bower install --allow-root
 RUN cp -a /tmp/bower_components /rentals
 
 # add source code
