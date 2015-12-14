@@ -1,5 +1,8 @@
 FROM rnsloan/emberjs:latest
 
+# install apache server
+RUN apt-get update && apt-get install apache2 -y
+
 # pre-install npm things
 ADD package.json /tmp/package.json
 RUN cd /tmp && npm install
@@ -16,6 +19,7 @@ COPY . /rentals
 
 WORKDIR /rentals
 
-EXPOSE 4200 35729
+EXPOSE 4200 35729 80
 
-ENTRYPOINT ember serve
+RUN ember build --environment=production
+#ENTRYPOINT ember serve
