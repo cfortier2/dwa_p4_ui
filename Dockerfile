@@ -23,7 +23,10 @@ RUN ember build --environment=production
 
 EXPOSE 4200 35729 80
 
+RUN mv /etc/apache2/apache2.conf /etc/apache2/apache2.conf.dist && rm /etc/apache2/conf-enabled/* /etc/apache2/sites-enabled/*
+
 # set apache conf
+COPY ./etc/apache2/apache2.conf /etc/apache2/apache2.conf
 COPY ./etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 COPY ./etc/apache2/conf-enabled/security.conf /etc/apache2/conf-enabled/security.conf
 
