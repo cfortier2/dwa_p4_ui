@@ -2,15 +2,15 @@
 
 <p>We hope you find exactly what you're looking for in a place to stay.</p>
 
-{{#each model as |listing|}}
-  <h2>{{listing.title}}</h2>
-  <p>Id: {{listing.id}}</p>
-  <p>Owner: {{listing.owner}}</p>
-  <p>Type: {{listing.type}}</p>
-  <p>City: {{listing.city}}</p>
-  <p>Summary: {{listing.summary}}</p>
-  <p>Price: {{listing.price}}</p>
-  <p>Available: {{listing.available_month}}</p>
+{{#each model as |rental|}}
+  <h2>{{rental.title}}</h2>
+  <p>Id: {{rental.id}}</p>
+  <p>Owner: {{rental.owner}}</p>
+  <p>Type: {{rental.type}}</p>
+  <p>City: {{rental.city}}</p>
+  <p>Summary: {{rental.summary}}</p>
+  <p>Price: {{rental.price}}</p>
+  <p>Available: {{rental.available_month}}</p>
 {{/each}}
 
 {{#link-to "about"}}About{{/link-to}}
