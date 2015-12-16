@@ -9,4 +9,5 @@ export default DS.Model.extend({
   price: DS.attr(),
   available_month: DS.attr(),
   summary: DS.attr(),
+  emailAddress: DS.attr(),
 });

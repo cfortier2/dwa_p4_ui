@@ -1,1 +1,15 @@
-{{yield}}
+<h2>{{rental.title}}</h2>
+<p>Id: {{rental.id}}</p>
+<p>Owner: {{rental.owner}}</p>
+<p>Type: {{rental.type}}</p>
+<p>City: {{rental.city}}</p>
+<p>Summary: {{rental.summary}}</p>
+<p>Email: {{rental.emailAddress}}</p>
+<p>Price: {{rental.price}}</p>
+<p>Available: {{rental.available_month}}</p>
+{{#if isImageShowing}}
+  <p><img src={{rental.image}} alt={{rental.type}} width="500px"></p>
+  <button {{action "imageHide"}}>Hide Image</button>
+{{else}}
+  <button {{action "imageShow"}}>Show Image</button>
+{{/if}}
