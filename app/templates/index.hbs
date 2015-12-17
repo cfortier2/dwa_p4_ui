@@ -2,9 +2,25 @@
 
 <p>We hope you find exactly what you're looking for in a place to stay.</p>
 
-{{#each model as |rentalUnit|}}
-  {{rental-listing rental=rentalUnit}}
-{{/each}}
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Owner</th>
+    <th>City</th>
+    <th>Type</th>
+  </tr>
+
+  {{#each model as |rental|}}
+    {{#link-to "rentals" rental tagName="tr"}}
+      <td>{{rental.title}}</td>
+      <td>{{rental.owner}}</td>
+      <td>{{rental.city}}</td>
+      <td>{{rental.type}}</td>
+    {{/link-to}}
+  {{/each}}
+</table>
+
+{{outlet}}
 
 {{#link-to "about"}}About{{/link-to}}
 {{#link-to "contact"}}Click here to contact us.{{/link-to}}

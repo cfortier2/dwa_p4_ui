@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
   isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
 
   actions: {
-      saveRental: function() {
+      saveInvitation: function() {
         var emailAddress = this.get('emailAddress');
         var title = this.get('title');
         var owner = this.get('owner');
@@ -38,12 +38,7 @@ export default Ember.Controller.extend({
           summary: summary
         });
 
-        var _that = this;
-
-        function transitionToRental(rental) {
-          _that.transitionToRoute('rentals', rental);
-        }
-        newRental.save().then(transitionToRental);
+        newRental.save();
       }
     }
 });

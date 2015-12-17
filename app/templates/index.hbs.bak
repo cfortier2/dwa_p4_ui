@@ -1,0 +1,23 @@
+<h1>Welcome to Rentals</h1>
+
+<p>We hope you find exactly what you're looking for in a place to stay.</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title:</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each model as |rentalUnit|}}
+    <!-- {{rental-listing rental=rentalUnit}} -->
+    <tr>
+      <td>{{rentalUnit.title}}</td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+
+{{#link-to "about"}}About{{/link-to}}
+{{#link-to "contact"}}Click here to contact us.{{/link-to}}
+{{#link-to "rental"}}Click here to create a new listing.{{/link-to}}
