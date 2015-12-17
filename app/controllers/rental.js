@@ -41,6 +41,7 @@ export default Ember.Controller.extend({
         var _that = this;
 
         function transitionToRental(rental) {
+          console.log(rental);
           _that.transitionToRoute('rentals', rental);
         }
         newRental.save().then(transitionToRental);
