@@ -2,7 +2,20 @@
 <div class=create-form>
 <h1>Create a new listing</h1>
 
-<form method='POST' {{action "create" on="submit"}}>
+<script src="assets/dropzone.js" type="text/javascript">
+
+<!-- This doesn't work. ugh. -->
+Dropzone.options.myAwesomeDropzone = {
+  maxFiles: 1,
+  init: function() {
+    this.on("addedfile", function(file) { alert("Added file."); });
+    this.on("success", function(file) { alert("success."); });
+  }
+};
+</script>
+
+<link rel="stylesheet" href="assets/dropzone.css">
+<form method='POST' {{action "create" on="submit"}} class="dropzone" action="http://192.168.99.100/images" id="my-awesome-dropzone">
   {{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}
   {{input type="string" value=title class="form-control" placeholder="Title:" autofocus="autofocus"}}
   {{input type="string" value=owner class="form-control" placeholder="Owner" autofocus="autofocus"}}
@@ -12,15 +25,7 @@
   {{input type="textarea" value=summary class="form-control" placeholder="Summary:" autofocus="autofocus"}}
 </form>
 
-<!-- from http://www.dropzonejs.com/ -->
-<script src="assets/dropzone.js"></script>
-<link rel="stylesheet" href="assets/dropzone.css">
-<form action="/image-upload"
-      class="dropzone"
-      id="my-awesome-dropzone">
-</form>
-
-<button class="btn btn-primary btn-lg btn-block" disabled="{{unless isValid 'disabled'}}" {{action 'saveRental'}}>Request invitation</button>
+<button class="btn btn-primary btn-lg btn-block" disabled="{{unless isValid 'disabled'}}" {{action 'saveRental'}}>Create Listing</button>
 </div>
 
 {{#link-to "about"}}About{{/link-to}}

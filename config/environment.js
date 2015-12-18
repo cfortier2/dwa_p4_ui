@@ -46,8 +46,9 @@ module.exports = function(environment) {
   ENV.contentSecurityPolicy = {
   'connect-src': "'self' * http://maxcdn.bootstrapcdn.com",
   'style-src': "'self' * http://maxcdn.bootstrapcdn.com",
-  'script-src': "'self' * http://maxcdn.bootstrapcdn.com",
+  'script-src': "'self' * http://maxcdn.bootstrapcdn.com 'unsafe-inline'",
   'font-src': "'self' * http://maxcdn.bootstrapcdn.com",
+  'img-src': "'self' * data:",
 }
 
   return ENV;

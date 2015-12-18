@@ -1,18 +1,21 @@
-<h2>{{model.title}}</h2>
-<p>Id: {{model.id}}</p>
-<p>Owner: {{model.owner}}</p>
-<p>Type: {{model.type}}</p>
-<p>City: {{model.city}}</p>
-<p>Summary: {{model.summary}}</p>
-<p>Email: {{model.emailAddress}}</p>
-<p>Price: {{model.price}}</p>
-<p>Available: {{model.available_month}}</p>
-{{#if isImageShowing}}
-  <p><img src={{model.image}} alt={{model.type}} width="500px"></p>
-  <button {{action "imageHide"}}>Hide Image</button>
-{{else}}
-  <button {{action "imageShow"}}>Show Image</button>
-{{/if}}
+<form method=POST {{action "update" on="submit"}} id='rental-listing' class="rental-form">
+  Title: {{input type="string" value=model.title class="form-control" autofocus="autofocus" disabled=isDisabled}}
+  Owner: {{input type="string" value=model.owner class="form-control" autofocus="autofocus" disabled=isDisabled}}
+  Type: {{input type="string" value=model.type class="form-control" autofocus="autofocus" disabled=isDisabled}}
+  City: {{input type="string" value=model.city class="form-control" autofocus="autofocus" disabled=isDisabled}}
+  Summary: {{input type="string" value=model.summary class="form-control" autofocus="autofocus" disabled=isDisabled}}
+  Email Address:{{input type="string" value=model.emailAddress class="form-control" autofocus="autofocus" disabled=isDisabled}}
+  Price: {{input type="string" value=model.price class="form-control" autofocus="autofocus" disabled=isDisabled}}
+  Available: {{input type="string" value=model.available_month class="form-control" autofocus="autofocus" disabled=isDisabled}}
+</form>
+
+  {{#if isDisabled}}
+    <button class="btn btn-primary btn-lg btn-block" {{action "updateListing"}}>Update Listing</button>
+  {{else}}
+    <button class="btn btn-primary btn-lg btn-block" {{action "saveListing"}}>Save Update</button>
+  {{/if}}
+
+  <button class="btn btn-primary btn-lg btn-block" {{action 'deleteRental'}}>DELETE Listing</button>
 
 {{#link-to "about"}}About{{/link-to}}
 {{#link-to "contact"}}Click here to contact us.{{/link-to}}
