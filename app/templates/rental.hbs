@@ -1,14 +1,19 @@
-{{outlet}}
-<h1>Create a new listing</h1>
+<h2>{{model.title}}</h2>
+<p>Id: {{model.id}}</p>
+<p>Owner: {{model.owner}}</p>
+<p>Type: {{model.type}}</p>
+<p>City: {{model.city}}</p>
+<p>Summary: {{model.summary}}</p>
+<p>Email: {{model.emailAddress}}</p>
+<p>Price: {{model.price}}</p>
+<p>Available: {{model.available_month}}</p>
+{{#if isImageShowing}}
+  <p><img src={{model.image}} alt={{model.type}} width="500px"></p>
+  <button {{action "imageHide"}}>Hide Image</button>
+{{else}}
+  <button {{action "imageShow"}}>Show Image</button>
+{{/if}}
 
-
-<form method='POST' {{action "create" on="submit"}}>
-  {{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}
-  {{input type="string" value=title class="form-control" placeholder="Title:" autofocus="autofocus"}}
-  {{input type="string" value=owner class="form-control" placeholder="Owner" autofocus="autofocus"}}
-  {{input type="string" value=city class="form-control" placeholder="City:" autofocus="autofocus"}}
-  {{input type="string" value=type class="form-control" placeholder="Type:" autofocus="autofocus"}}
-  {{input type="string" value=price class="form-control" placeholder="Price:" autofocus="autofocus"}}
-  {{input type="textarea" value=summary class="form-control" placeholder="Summary:" autofocus="autofocus"}}
-  <button class="btn btn-primary btn-lg btn-block" disabled="{{unless isValid 'disabled'}}" {{action 'saveRental'}}>Request invitation</button>
-</form>
+{{#link-to "about"}}About{{/link-to}}
+{{#link-to "contact"}}Click here to contact us.{{/link-to}}
+{{#link-to "index"}}Return home.{{/link-to}}

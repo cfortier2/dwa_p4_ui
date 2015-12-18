@@ -11,7 +11,7 @@
   </tr>
 
   {{#each model as |rental|}}
-    {{#link-to "rentals" rental tagName="tr"}}
+    {{#link-to "rental" rental tagName="tr"}}
       <td>{{rental.title}}</td>
       <td>{{rental.owner}}</td>
       <td>{{rental.city}}</td>
@@ -24,4 +24,4 @@
 
 {{#link-to "about"}}About{{/link-to}}
 {{#link-to "contact"}}Click here to contact us.{{/link-to}}
-{{#link-to "rental"}}Click here to create a new listing.{{/link-to}}
+{{#link-to "create-listing"}}Click here to create a new listing.{{/link-to}}
