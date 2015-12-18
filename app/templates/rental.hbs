@@ -1,4 +1,4 @@
-<form method=POST {{action "update" on="submit"}} id='rental-listing' class="rental-form">
+<form method=POST {{action "updateListing" on="submit"}} id='rental-listing' class="rental-form">
   Title: {{input type="string" value=model.title class="form-control" autofocus="autofocus" disabled=isDisabled}}
   Owner: {{input type="string" value=model.owner class="form-control" autofocus="autofocus" disabled=isDisabled}}
   Type: {{input type="string" value=model.type class="form-control" autofocus="autofocus" disabled=isDisabled}}
@@ -10,9 +10,9 @@
 </form>
 
   {{#if isDisabled}}
-    <button class="btn btn-primary btn-lg btn-block" {{action "updateListing"}}>Update Listing</button>
+    <button class="btn btn-primary btn-lg btn-block" {{action "enableEdit"}}>Update Listing</button>
   {{else}}
-    <button class="btn btn-primary btn-lg btn-block" {{action "saveListing"}}>Save Update</button>
+    <button class="btn btn-primary btn-lg btn-block" {{action "updateListing" model.id}}>Save Update</button>
   {{/if}}
 
   <button class="btn btn-primary btn-lg btn-block" {{action 'deleteRental'}}>DELETE Listing</button>
