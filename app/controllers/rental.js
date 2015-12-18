@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+
+
   isDisabled: true,
   model_id: '',
   actions: {
@@ -8,6 +10,7 @@ export default Ember.Controller.extend({
       this.set('isDisabled', false);
     },
     updateListing(id) {
+
       this.set('isDisabled', true);
       var emailAddress = this.get('emailAddress');
       var title = this.get('title');
@@ -34,9 +37,17 @@ export default Ember.Controller.extend({
       });
 
     },
-    deleteListing() {
+    deleteListing(id) {
+      var _that = this;
+      function transitionToIndex() {
+        _that.transitionToRoute('index');
+      }
+
+      console.log(id);
       this.set('isDisabled', true);
-      // implement delete
+      this.store.findRecord('rental', id).then(function(rental) {
+        rental.destroyRecord();
+        }).then(transitionToIndex);
     }
   }
 });

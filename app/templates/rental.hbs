@@ -15,7 +15,7 @@
     <button class="btn btn-primary btn-lg btn-block" {{action "updateListing" model.id}}>Save Update</button>
   {{/if}}
 
-  <button class="btn btn-primary btn-lg btn-block" {{action 'deleteRental'}}>DELETE Listing</button>
+  <button class="btn btn-primary btn-lg btn-block" {{action 'deleteListing' model.id}}>DELETE Listing</button>
 
 {{#link-to "about"}}About{{/link-to}}
 {{#link-to "contact"}}Click here to contact us.{{/link-to}}
