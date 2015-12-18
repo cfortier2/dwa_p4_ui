@@ -46,8 +46,8 @@ export default Ember.Controller.extend({
       console.log(id);
       this.set('isDisabled', true);
       this.store.findRecord('rental', id).then(function(rental) {
-        rental.destroyRecord();
-        }).then(transitionToIndex);
+        rental.destroyRecord().then(transitionToIndex);
+        });
     }
   }
 });
