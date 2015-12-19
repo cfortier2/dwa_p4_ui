@@ -16,6 +16,7 @@ export default Ember.Controller.extend({
 
   actions: {
       saveRental: function() {
+        console.log(this);
         var emailAddress = this.get('emailAddress');
         var title = this.get('title');
         var owner = this.get('owner');

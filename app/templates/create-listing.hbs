@@ -4,7 +4,6 @@
 
 <script src="assets/dropzone.js" type="text/javascript">
 
-<!-- This doesn't work. ugh. -->
 Dropzone.options.myAwesomeDropzone = {
   maxFiles: 1,
   init: function() {
@@ -15,7 +14,7 @@ Dropzone.options.myAwesomeDropzone = {
 </script>
 
 <link rel="stylesheet" href="assets/dropzone.css">
-<form method='POST' {{action "create" on="submit"}} class="dropzone" action="http://192.168.99.100/images" id="my-awesome-dropzone">
+<form method='POST' class="dropzone" action="http://192.168.99.100/images" id="my-awesome-dropzone">
   {{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}
   {{input type="string" value=title class="form-control" placeholder="Title:" autofocus="autofocus"}}
   {{input type="string" value=owner class="form-control" placeholder="Owner" autofocus="autofocus"}}
