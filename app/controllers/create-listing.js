@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import config from '../config/environment';
 
 export default Ember.Controller.extend({
 
@@ -11,12 +12,18 @@ export default Ember.Controller.extend({
   price: '',
   available_month: '',
   summary: '',
+  apihost: config.APP.apihost,
+  // create a unique ID for each rental creation. It's a bit of a hack for not having proper session management.
+  uniqid: Date.now(),
 
   isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
 
+
   actions: {
       saveRental: function() {
+        console.log('saveRental this:');
         console.log(this);
+        console.log(this.get('imageids'));
         var emailAddress = this.get('emailAddress');
         var title = this.get('title');
         var owner = this.get('owner');
@@ -36,7 +43,8 @@ export default Ember.Controller.extend({
           image: image,
           price: price,
           available_month: available_month,
-          summary: summary
+          summary: summary,
+          uniqid: this.uniqid
         });
 
         var _that = this;

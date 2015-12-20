@@ -10,4 +10,5 @@ export default DS.Model.extend({
   available_month: DS.attr(),
   summary: DS.attr(),
   emailAddress: DS.attr(),
+  uniqid: DS.attr(),
 });

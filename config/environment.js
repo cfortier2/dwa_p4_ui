@@ -16,6 +16,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      apihost: 'default-host',
     }
   };
 
@@ -25,6 +26,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.apihost = 'http://192.168.99.100';
   }
 
   if (environment === 'test') {
@@ -37,16 +39,17 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.apihost = 'http://192.168.99.100';
   }
 
   if (environment === 'production') {
-
+    ENV.APP.apihost = 'http://p4.fortier.io:85';
   }
 
   ENV.contentSecurityPolicy = {
   'connect-src': "'self' * http://maxcdn.bootstrapcdn.com",
   'style-src': "'self' * http://maxcdn.bootstrapcdn.com",
-  'script-src': "'self' * http://maxcdn.bootstrapcdn.com 'unsafe-inline'",
+  'script-src': "'self' * http://maxcdn.bootstrapcdn.com 'unsafe-inline' 'unsafe-eval'",
   'font-src': "'self' * http://maxcdn.bootstrapcdn.com",
   'img-src': "'self' * data:",
 }
