@@ -2,6 +2,7 @@ FROM rnsloan/emberjs:latest
 
 # install apache server
 # Several lines from: https://github.com/docker-library/php/blob/a9f7fed15bc6bb03aa3648560ef4cb0ac79fb612/5.6/apache/Dockerfile
+RUN apt-get update && apt-get install -y vim
 RUN apt-get update && apt-get install -y ca-certificates curl librecode0 libsqlite3-0 libxml2 --no-install-recommends && rm -r /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y apache2-bin apache2.2-common --no-install-recommends && rm -rf /var/lib/apt/lists/*
 RUN rm -rf /var/www/html && mkdir -p /var/lock/apache2 /var/run/apache2 /var/log/apache2 /var/www/html && chown -R www-data:www-data /var/lock/apache2 /var/run/apache2 /var/log/apache2 /var/www/html
@@ -42,7 +43,7 @@ RUN rm -rf /var/www/html && ln -s /app/dist /var/www/html
 # chown everything to the apache user
 RUN chown -R www-data:www-data /app
 
-COPY apache2-foreground /usr/local/bin/
-CMD ["apache2-foreground"]
+#COPY apache2-foreground /usr/local/bin/
+#CMD ["apache2-foreground"]
 
-#ENTRYPOINT ember serve
+ENTRYPOINT ember serve
