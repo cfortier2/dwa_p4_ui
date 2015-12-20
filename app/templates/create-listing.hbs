@@ -1,6 +1,4 @@
 {{outlet}}
-<!-- <link rel="stylesheet" href="assets/dropzone.css"> -->
-<!-- <script src="assets/dropzone.js"></script> -->
 
 <div class=create-form>
 <h1>Create a new listing</h1>
@@ -15,7 +13,6 @@
   {{input type="string" value=price class="form-control" placeholder="Price:" autofocus="autofocus"}}
   {{input type="textarea" value=summary class="form-control" placeholder="Summary:" autofocus="autofocus"}}
   {{input type="hidden" value=uniqid class="form-control"}}
-  <!-- {{input type="string" value=imageids class="form-control" placeholder="Image IDS:" autofocus="autofocus" disabled=false id="imageidform"}} -->
 </form>
 
 <button class="btn btn-primary btn-lg btn-block" disabled="{{unless isValid 'disabled'}}" {{action 'saveRental'}}>Create Listing</button>
@@ -27,17 +24,8 @@
 
         // send the uniqid with each upload
         this.on("sending", function(file, xhr, formData) {
+          console.log("uniqid", {{uniqid}});
           formData.append("uniqid", {{uniqid}});
-        });
-
-        // save all of the image ids
-        <!-- var image_ids = ''; -->
-        <!-- this.on("success", function(file, response) { -->
-        <!--   var image_id = response.images[0].id; -->
-        <!--   image_ids += image_id.toString() + ','; -->
-        <!--   console.log(image_ids); -->
-
-          <!-- document.getElementById('imageidform').value = image_ids; -->
         });
       }
     };
