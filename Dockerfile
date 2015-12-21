@@ -43,6 +43,7 @@ RUN rm -rf /var/www/html && ln -s /app/dist /var/www/html
 # chown everything to the apache user
 RUN chown -R www-data:www-data /app
 
+COPY .htaccess /app/dist/.htaccess
 COPY apache2-foreground /usr/local/bin/
 CMD ["apache2-foreground"]
 
