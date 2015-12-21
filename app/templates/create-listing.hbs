@@ -1,19 +1,24 @@
 {{outlet}}
 
-<script>
-window.onload = function() {
-    if(!window.location.hash) {
-        window.location = window.location + '#loaded';
-        window.location.reload();
+<script type="text/javascript">
+$(document).ready(function(){    
+    //Check if the current URL contains '#'
+    if(document.URL.indexOf("#")==-1){
+        // Set the URL to whatever it was plus "#".
+        url = document.URL+"#";
+        location = "#";
+
+        //Reload the page
+        location.reload(true);
     }
-}
+});
 </script>
 
 <div class=create-form>
 <h1>Create a new listing</h1>
 <script>console.log("apihost: {{apihost}}");</script>
 <script>console.log("uniqid: {{uniqid}}");</script>
-<form method='POST' class="dropzone" action="{{apihost}}/rentals" id="my-awesome-dropzone">
+<form method='POST' class="dropzone" action="{{apihost}}/images" id="my-awesome-dropzone">
   {{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}
   {{input type="string" value=title class="form-control" placeholder="Title:" autofocus="autofocus"}}
   {{input type="string" value=owner class="form-control" placeholder="Owner" autofocus="autofocus"}}
