@@ -30,6 +30,7 @@ export default Ember.Controller.extend({
         rental.save().then(transitionToIndex);
       });
     },
+
     deleteListing(id) {
       var _that = this;
       function transitionToIndex() {
@@ -41,6 +42,7 @@ export default Ember.Controller.extend({
       this.store.findRecord('rental', id).then(function(rental) {
         rental.destroyRecord().then(transitionToIndex);
         });
-    }
+    },
+
   }
 });
