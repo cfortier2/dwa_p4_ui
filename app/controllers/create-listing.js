@@ -13,6 +13,7 @@ export default Ember.Controller.extend({
   available_month: '',
   summary: '',
   apihost: config.APP.apihost,
+  apiImages: config.APP.apihost.concat('/images'),
   // create a unique ID for each rental creation. It's a bit of a hack for not having proper session management.
   uniqid: Date.now(),
 

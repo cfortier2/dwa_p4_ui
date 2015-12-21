@@ -1,12 +1,13 @@
 {{outlet}}
-<link rel="stylesheet" href="assets/dropzone.css">
-<script src="assets/dropzone.js"></script>
+<!-- <link rel="stylesheet" href="assets/dropzone.css"> -->
+<!-- <script src="assets/dropzone.js"></script> -->
+
 
 <div class=create-form>
 <h1>Create a new listing</h1>
 <script>console.log("apihost: {{apihost}}");</script>
 <script>console.log("uniqid: {{uniqid}}");</script>
-<form method='POST' class="dropzone" action="{{apihost}}/images" id="my-awesome-dropzone">
+<form method='POST' id="create-listing-form">
   {{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}
   {{input type="string" value=title class="form-control" placeholder="Title:" autofocus="autofocus"}}
   {{input type="string" value=owner class="form-control" placeholder="Owner" autofocus="autofocus"}}
@@ -15,6 +16,7 @@
   {{input type="string" value=price class="form-control" placeholder="Price:" autofocus="autofocus"}}
   {{input type="textarea" value=summary class="form-control" placeholder="Summary:" autofocus="autofocus"}}
   {{input type="hidden" value=uniqid class="form-control"}}
+  {{drop-zone url=apiImages id="my-awesome-dropzone"}}
 </form>
 
 <button class="btn btn-primary btn-lg btn-block" disabled="{{unless isValid 'disabled'}}" {{action 'saveRental'}}>Create Listing</button>
@@ -23,6 +25,7 @@
 <script>
     Dropzone.options.myAwesomeDropzone = {
       init: function() {
+        console.log('dropzone init');
 
         // send the uniqid with each upload
         this.on("sending", function(file, xhr, formData) {
