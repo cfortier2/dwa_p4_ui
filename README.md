@@ -13,7 +13,7 @@ This site provides a place to post and browse simple real estate listings. This 
 All user interactions will be done through this site.
 
 # Demo:
-TODO:
+http://screencast.com/t/5QWGdLYq
 
 # Details:
 
