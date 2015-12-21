@@ -13,8 +13,8 @@ export default Ember.Controller.extend({
       console.log(this);
 
       var _that = this;
-      function transitionToIndex() {
-        _that.transitionToRoute('index');
+      function transitionToRental(rental) {
+        _that.transitionToRoute('rental', rental);
       }
 
       this.store.findRecord('rental', id).then(function(rental) {
@@ -27,7 +27,7 @@ export default Ember.Controller.extend({
         if (_that.get('price')) { rental.set('price', _that.get('price')); }
         if (_that.get('available_month')) { rental.set('available_month', _that.get('available_month')); }
         if (_that.get('summary')) { rental.set('summary', _that.get('summary')); }
-        rental.save().then(transitionToIndex);
+        rental.save().then(transitionToRental);
       });
     },
 

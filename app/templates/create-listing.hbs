@@ -23,6 +23,7 @@
     Dropzone.options.myAwesomeDropzone = {
       init: function() {
         console.log('dropzone init');
+        dictDefaultMessage: "Drop images here to upload."
 
         // send the uniqid with each upload
         this.on("sending", function(file, xhr, formData) {
@@ -32,7 +33,3 @@
       }
     };
 </script>
-
-{{#link-to "about"}}About{{/link-to}}
-{{#link-to "contact"}}Click here to contact us.{{/link-to}}
-{{#link-to "index"}}Return home.{{/link-to}}
